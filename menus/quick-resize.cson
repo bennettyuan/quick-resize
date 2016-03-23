@@ -1,0 +1,15 @@
+'menu': [
+  {
+    'label': 'View'
+    'submenu': [
+      {
+        'label': 'Quick Resize - One'
+        'command': 'quick-resize:one'
+      }
+      {
+        'label': 'Quick Resize - Two'
+        'command': 'quick-resize:two'
+      }
+    ]
+  }
+]
