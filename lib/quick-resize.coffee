@@ -5,6 +5,9 @@ module.exports = QuickResize =
     sizeOne:
       type: 'object'
       properties:
+        description:
+          type: 'string'
+          default: 'Medium'
         width:
           type: 'number'
           default: 846
@@ -14,6 +17,9 @@ module.exports = QuickResize =
     sizeTwo:
       type: 'object'
       properties:
+        description:
+          type: 'string'
+          default: 'Large'
         width:
           type: 'number'
           default: 1090
@@ -31,14 +37,16 @@ module.exports = QuickResize =
 
   sizeOne: ->
     if not atom.isFullScreen()
+      description = atom.config.get('quick-resize.sizeOne.description')
       width = atom.config.get('quick-resize.sizeOne.width')
       height = atom.config.get('quick-resize.sizeOne.height')
       atom.setSize(width, height)
-      atom.notifications.addInfo "Quick Resize: One"
+      atom.notifications.addInfo "Quick Resize: #{description}"
 
   sizeTwo: ->
     if not atom.isFullScreen()
+      description = atom.config.get('quick-resize.sizeTwo.description')
       width = atom.config.get('quick-resize.sizeTwo.width')
       height = atom.config.get('quick-resize.sizeTwo.height')
       atom.setSize(width, height)
-      atom.notifications.addInfo "Quick Resize: Two"
+      atom.notifications.addInfo "Quick Resize: #{description}"
