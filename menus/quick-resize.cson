@@ -10,6 +10,10 @@
         'label': 'Quick Resize - Two'
         'command': 'quick-resize:two'
       }
+      {
+        'label': 'Quick Resize - Save Current Size'
+        'command': 'quick-resize:save-current-size'
+      }
     ]
   }
 ]

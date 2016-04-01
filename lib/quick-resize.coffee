@@ -31,6 +31,7 @@ module.exports = QuickResize =
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.commands.add 'atom-workspace', 'quick-resize:one': => @sizeOne()
     @subscriptions.add atom.commands.add 'atom-workspace', 'quick-resize:two': => @sizeTwo()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'quick-resize:save-current-size': => @saveCurrentSize()
 
   deactivate: ->
     @subscriptions.dispose()
@@ -50,3 +51,14 @@ module.exports = QuickResize =
       height = atom.config.get('quick-resize.sizeTwo.height')
       atom.setSize(width, height)
       atom.notifications.addInfo "Quick Resize: #{description}"
+
+  saveCurrentSize: ->
+    if atom.isFullScreen()
+      atom.notifications.addError "Can not save current window size in full-screen mode"
+    else
+      width = atom.getSize().width
+      height = atom.getSize().height
+      atom.config.set 'quick-resize.sizeTwo.width', width
+      atom.config.set 'quick-resize.sizeTwo.height', height
+      atom.config.set 'quick-resize.sizeTwo.description', 'New size with save'
+      atom.notifications.addInfo "Saved"
