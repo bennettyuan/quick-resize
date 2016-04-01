@@ -1,7 +1,7 @@
 {
   "name": "quick-resize",
   "main": "./lib/quick-resize",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Quick to resize of Atom window",
   "repository": "https://github.com/havthgem/quick-resize",
   "license": "MIT",
